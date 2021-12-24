@@ -29,6 +29,7 @@ class Navbar extends React.Component {
                     </div>
                     <Link className="nav-link text-white" to="/Signin">Sign in</Link>
                     <Link className="nav-link text-white" to="/Signup">Sign up</Link>
+                    <a className="btn btn-secondary" href="api/Login/Logout">Log out</a>
                     
                 </nav>
             </div>

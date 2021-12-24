@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using calender.Repostory;
+using Microsoft.AspNetCore.Http;
 
 namespace calender.Controllers
 {
@@ -21,10 +22,37 @@ namespace calender.Controllers
         [HttpGet("[action]")]
         public IActionResult Index()
         {
-            _calenderDbContext.User.Add(new User { EMail = "test@test.com", Name = "yigit", Password = "yigittest", SurName = "yilmaz" });
-            _calenderDbContext.SaveChanges();
             //var result = _calenderDbContext.User.Find(1);
             return View();
-        }  
+        }
+        [HttpGet("[action]")]
+        public IActionResult Register(User model)
+        {
+            _calenderDbContext.User.Add(model);
+            _calenderDbContext.SaveChanges();
+            //var result = _calenderDbContext.User.Find(1);
+            return Redirect("/Signin");
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult Signin(string EMail, string Password)
+        {
+            var user = _calenderDbContext.User.FirstOrDefault(w => w.EMail.Equals(EMail) && w.Password.Equals(Password));
+            if(user != null)
+            {
+                HttpContext.Session.SetInt32("id", user.Userid);
+                HttpContext.Session.SetString("fullname", user.Name + " " + user.SurName);
+                return Redirect("/Home");
+            }
+            return Redirect("/About");
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return Redirect("/Signin");
+        }
     }
 }
+//new User { EMail = "asdasdasd@asdasd.com", Name = "asdasd", Password = "yigittest", SurName = "yilmaz" }

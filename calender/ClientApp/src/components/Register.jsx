@@ -6,25 +6,25 @@ class Register extends React.Component {
             <div>
                 <div className="card mx-auto w-50">
                     <div className="card-body">
-                        <form class="row g-3">
-                            <div class="col-md-6">
-                                <label for="name" class="form-label">Ad</label>
-                                <input type="text" class="form-control" id="name"></input>
+                        <form className="row g-3" action="/api/Login/Register">
+                            <div className="col-md-6">
+                                <label htmlFor="Name" className="form-label">Ad</label>
+                                <input type="text" name="Name" className="form-control" id="Name"></input>
                             </div>
-                            <div class="col-md-6">
-                                <label for="surName" class="form-label">Soyad</label>
-                                <input type="text" class="form-control" id="surName"></input>
+                            <div className="col-md-6">
+                                <label htmlFor="SurName" className="form-label">Soyad</label>
+                                <input type="text" className="form-control" name="SurName" id="SurName"></input>
                             </div>
-                            <div class="col-12">
-                                <label for="eMail" class="form-label">E-mail</label>
-                                <input type="email" class="form-control" id="eMail" placeholder="example@example.com"></input>
+                            <div className="col-12">
+                                <label htmlFor="EMail" className="form-label">E-mail</label>
+                                <input type="eMail" className="form-control" id="EMail" name="EMail" placeholder="example@example.com"></input>
                             </div>
-                            <div class="col-12">
-                                <label for="password" class="form-label">Şifre</label>
-                                <input type="password" class="form-control" id="password"></input>
+                            <div className="col-12">
+                                <label htmlFor="Password" className="form-label">Şifre</label>
+                                <input type="password" name="Password" className="form-control" id="Password"></input>
                             </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Kaydol</button>
+                            <div className="col-12">
+                                <button type="submit" className="btn btn-primary">Kaydol</button>
                             </div>
                         </form>
                     </div>

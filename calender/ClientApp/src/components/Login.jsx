@@ -6,23 +6,31 @@ class Login extends React.Component {
             <div>
                 <div className="card mx-auto w-50">
                     <div className="card-body">
-                        <div className="mb-3 row">
-                            <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Email</label>
-                            <div className="col-sm-10">
-                                <input type="text" className="form-control" id="staticEmail" placeholder="email@example.com"></input>
+                        <form className="row g-3" action="/api/Login/Signin">
+                            <div className="col-12">
+                                <label htmlFor="EMail" className="form-label">E-mail</label>
+                                <input type="eMail" className="form-control" id="EMail" name="EMail" placeholder="example@example.com"></input>
                             </div>
-                        </div>
-                        <div className="mb-3 row">
-                            <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
-                            <div className="col-sm-10">
-                                <input type="password" className="form-control" id="inputPassword"></input>
+                            <div className="col-12">
+                                <label htmlFor="Password" className="form-label">Şifre</label>
+                                <input type="password" name="Password" className="form-control" id="Password"></input>
                             </div>
-                        </div>
+                            <div className="col-12">
+                                <button type="submit" className="btn btn-primary">Giriş</button>
+                            </div>
+                            <div className="col-12 text-center">
+                                <span className="txt1">
+                                    Hesabın yok mu?         
+                                </span>
 
-                        <button type="submit" className="btn btn-dark justify-content-end">Giriş</button>
+                                <a href="/Signup" className="txt2 hov1">
+                                    Sign Up
+                                </a>    
+                            </div>
+                        </form>
                     </div>
-  </div>
                 </div>
+            </div>
                 
         )
     }

@@ -1,6 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Microsoft.AspNetCore.Http;
 @{
-    
+    ViewData["Title"] = "Home Page";
+    string fullname = Context.Session.GetString("fullname");
 }
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @fullname</h1>
+</div>

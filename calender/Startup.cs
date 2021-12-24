@@ -22,6 +22,8 @@ namespace calender
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
+            services.AddDistributedMemoryCache();
 
             services.AddDbContext<CalenderDbContext>(options =>
             options.UseSqlServer("Server=.;Database=logindb;Trusted_Connection=True;MultipleActiveResultSets=true"));
@@ -51,11 +53,13 @@ namespace calender
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    template: "{controller}/{action}/{id?}");
             });
 
             app.UseSpa(spa =>
